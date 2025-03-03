@@ -1,0 +1,14 @@
+# Mac
+.DS_Store
+
+# pcap files
+pcap_files/
+
+# zeek output
+log_output/
+
+# logs and reports output
+output/
+
+# certificate
+private.key
