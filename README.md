@@ -6,11 +6,11 @@
 CryptoLens Offline utilizes Zeek to parse PCAP files, extract SSL/TLS logs, and enrich them with cipher suite metadata. The results are automatically compiled into an easy-to-read CSV report, helping security teams analyze cryptographic configurations effectively.
 
 ## ✨ Key Features
-✔ PCAP-based Analysis: No need for external dependencies—analyze network traffic directly.
-✔ Automated SSL/TLS Inspection: Extracts essential security details from captured traffic.
-✔ Cipher Suite Mapping: Matches extracted data with industry-standard cipher suite definitions.
-✔ Comprehensive Reports: Outputs security insights in CSV format for further analysis.
-✔ Customizable & Extensible: Easily integrate with your security workflows.
+- PCAP-based Analysis: No need for external dependencies—analyze network traffic directly.
+- Automated SSL/TLS Inspection: Extracts essential security details from captured traffic.
+- Cipher Suite Mapping: Matches extracted data with industry-standard cipher suite definitions.
+- Comprehensive Reports: Outputs security insights in CSV format for further analysis.
+- Customizable & Extensible: Easily integrate with your security workflows.
 
 ## ⚙ Prerequisites
 Before running CryptoLens, ensure your system meets the following requirements:
