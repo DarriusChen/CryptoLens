@@ -2,7 +2,8 @@
 .DS_Store
 
 # pcap files
-pcap_files/
+pcap_files/*
+!pcap_files/put_your_pcap_files_here
 
 # zeek output
 log_output/
