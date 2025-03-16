@@ -172,7 +172,7 @@ def map_ciphersuite(ssl_data, formatted_cs):
             origin_ip = data.get('id.orig_h')
             response_ip = data.get('id.resp_h')
             response_port = data.get('id.resp_p')
-            tls_version = data.get('version', "null")
+            # tls_version = data.get('version', "null")
             cipher_suite = data.get('cipher', "null")
             mapped_cipher_suite = formatted_cs.get(cipher_suite, "null")
             isp_info = get_isp(response_ip)
@@ -192,7 +192,7 @@ def map_ciphersuite(ssl_data, formatted_cs):
                     "isp": isp_info.get('isp'),
                     "country": isp_info.get('country'),
                     "city": isp_info.get('city'),
-                    "tls_version": tls_version,
+                    # "tls_version": tls_version,
                     "cipher_suite": mapped_cipher_suite
                 }
                 processed_data.append(data_item)
