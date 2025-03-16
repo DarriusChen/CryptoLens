@@ -43,7 +43,7 @@ cd crypto-lens-offline
    | ISP_ASN    | File path of ISP database (ASN)              | ./data/ISP_Database/GeoLite2-ASN.mmdb       | Yes❗         |
    | ISP_CITY   | File path of ISP database (city and country) | ./data/ISP_Database/GeoLite2-City.mmdb      | Yes❗         |
 
-**3️⃣ Put your pcap files under `./pcap_files/` dir (create the folder under the project's root directory)**
+**3️⃣ Put your pcap files under `pcap_files/` folder**
 
 **4️⃣ Run the Analysis**
 ```bash
