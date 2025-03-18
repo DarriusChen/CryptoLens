@@ -32,7 +32,7 @@ if [ "$(ls -A ./pcap_files)" ]; then # 確保 pcap 文件夾中有文件
 
             echo "Processing file: $pcap_name"
             mkdir -p "$output_dir/$pcap_folder"
-            zeek -r "$pcap" Log::default_logdir="$output_dir/$pcap_folder" -e 'redef LogAscii::use_json=T;'
+            zeek -r "$pcap" Log::default_logdir="$output_dir/$pcap_folder" -e 'redef LogAscii::use_json=T;' /usr/local/zeek/share/zeek/policy/protocols/ssl/ssl-log-ext.zeek
         else
             echo "Skipping unsupported file: $pcap"
         fi

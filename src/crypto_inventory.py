@@ -67,12 +67,13 @@ def get_data_from_ssl_log(log_file):
         data = [json.loads(line) for line in f]  # 每一行是一個 JSON 物件
         fields_to_extract = [
             'ts', 'id.orig_h', 'id.resp_h', 'id.resp_p',
-            'version', 'cipher', 'ssl_history'
+            'version', 'cipher', 'ssl_history', 'client_ciphers'
         ]
         filtered_data = [{
             field: item.get(field, "null")
             for field in fields_to_extract
         } for item in data]
+    ps_logger.info(f"Extracted {len(filtered_data)} records from {log_file}.")
     return filtered_data
 
 # ------------------------------------------------------------------ #
@@ -177,6 +178,7 @@ def map_ciphersuite(ssl_data, formatted_cs):
             mapped_cipher_suite = formatted_cs.get(cipher_suite, "null")
             isp_info = get_isp(response_ip)
             ssl_history = data.get('ssl_history', 'null')
+            client_cipher_suites = data.get('client_ciphers')
 
             # ISP temp storage
             if response_ip not in isp_cache:
@@ -193,7 +195,8 @@ def map_ciphersuite(ssl_data, formatted_cs):
                     "country": isp_info.get('country'),
                     "city": isp_info.get('city'),
                     # "tls_version": tls_version,
-                    "cipher_suite": mapped_cipher_suite
+                    "cipher_suite": mapped_cipher_suite,
+                    "client_cipher_suites": client_cipher_suites
                 }
                 processed_data.append(data_item)
             else:
@@ -203,7 +206,6 @@ def map_ciphersuite(ssl_data, formatted_cs):
             ps_logger.error(f"KeyError processing bucket: {data}, error: {e}")
         except Exception as e:
             ps_logger.error(f"Unexpected error processing bucket: {data}, error: {e}")
-
     return processed_data
 
 # ------------------------------------------------------------------ #
@@ -278,6 +280,8 @@ def main():
             if df is not None:
                 # 逐步合併
                 combined_df = pd.concat([combined_df, df], ignore_index=True)
+                ps_logger.info(f"Successfully processed {log_file}.")
+                ps_logger.info(f"Current combined_df shape: {combined_df.shape}")
             else:
                 raise ValueError(f"No data returned for {log_file}.")
         except Exception as e:
