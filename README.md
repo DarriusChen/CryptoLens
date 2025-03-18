@@ -1,9 +1,6 @@
-# CryptoLens 🚀
+# CryptoLens
 
-**CryptoLens** is an automated tool for extracting, analyzing, and auditing SSL/TLS traffic. It maps cryptographic data from PCAP files to generate a comprehensive inventory of encryption methods, facilitating security assessments, compliance audits, and vulnerability analysis.
-
-## 🔍 Overview
-CryptoLens Offline utilizes Zeek to parse PCAP files, extract SSL/TLS logs, and enrich them with cipher suite metadata. The results are automatically compiled into an easy-to-read CSV report, helping security teams analyze cryptographic configurations effectively.
+**CryptoLens** automates SSL/TLS traffic analysis, providing a comprehensive inventory of cryptographic configurations from PCAP files. It enables security teams to quickly assess risks, ensure compliance, and prepare for future cryptographic challenges, including post-quantum migration.
 
 ## ✨ Key Features
 - PCAP-based Analysis: No need for external dependencies—analyze network traffic directly.
