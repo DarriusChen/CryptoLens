@@ -28,7 +28,7 @@ Before running CryptoLens, ensure your system meets the following requirements:
 
 **1️⃣ Navigate to the Project Root Directory**
 ```bash
-cd crypto-lens-offline
+cd CryptoLens
 ```
 
 **2️⃣ Configure .env File** (Set Paths for Logs & Cipher Data)
@@ -54,26 +54,27 @@ sudo bash crypto_inventory.sh
 ## 📂 Project Structure
 ```plaintext
 crypto-lens-offline/
-├── README.md                 # Documentation
-├── crypto_inventory.py        # Main script for data processing
-├── crypto_inventory.sh        # Shell script for execution
-├── data/                      # Supporting databases
-│   ├── ISP_Database/          # ISP & location data
+├── README.md                     # Documentation
+├── src/
+├── └──crypto_inventory.py        # Main script for data processing
+├── crypto_inventory.sh           # Shell script for execution
+├── data/                         # Supporting databases
+│   ├── ISP_Database/             # ISP & location data
 │   │   ├── GeoLite2-ASN.mmdb
-│   │   ├── GeoLite2-City.mmdb
-│   ├── cipher_suites.json     # Cipher suite metadata
-├── log_output/                # Extracted Zeek logs
+│   │   └── GeoLite2-City.mmdb
+│   └── cipher_suites.json        # Cipher suite metadata
+├── log_output/                   # Extracted Zeek logs
 │   ├── <timestamp>/
-│   │   ├── ssl.log            # TLS-related logs
-│   │   ├── x509.log           # Certificate logs
+│   │   ├── ssl.log               # TLS-related logs
+│   │   ├── x509.log              # Certificate logs
 │   │   ├── other Zeek logs...
 ├── output/
 │   ├── crypto_inventory_report/  # Generated CSV reports
-│   ├── logs/                    # Execution logs & errors
-├── pcap_files/                 # Directory for input PCAP files
-│   ├── sample.pcap              # Example network capture
-├── zeek_analysis.sh            # Zeek automation script
-└── requirements.txt            # Dependencies list
+│   └── logs/                     # Execution logs & errors
+├── pcap_files/                   # Directory for input PCAP files
+│   └── sample.pcap               # Example network capture
+├── zeek_analysis.sh              # Zeek automation script
+└── requirements.txt              # Dependencies list
 ```
 
 ## 📊 Output Format
