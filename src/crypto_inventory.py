@@ -239,7 +239,7 @@ def process_ssl_log_mapping(log_file):
         # Drop all duplicate pairs in DataFrame
         df.drop_duplicates(subset = ["origin_ip", "response_ip", "response_port"], inplace=True)
     except Exception as e:
-        error_file = f"./logs/error_{int(time.time())}.json"
+        error_file = f"./output/logs/error_{int(time.time())}.json"
         with open(error_file, 'w') as f:
             json.dump(zeek_ssl_cipher, f)
         ps_logger.error(f"Error processing ssl log mapping. Data saved to {error_file}: {e}")
