@@ -41,7 +41,8 @@ check_files() {
       echo "$LOG_PATH"
       rm -rf "$LOG_PATH"/*
   else
-      echo "haha"
+      echo "log_output directory not found, creating..."
+      mkdir "$LOG_PATH"
   fi
 }
 
